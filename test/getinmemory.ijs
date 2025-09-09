@@ -1,6 +1,6 @@
 NB. write to memory
 
-load 'curl.ijs'
+load 'api/curl'
 
 cdcallback=: 3 : 0
 y=. 15!:17''
@@ -21,13 +21,13 @@ data_1=: ''
 curl_global_init <CURL_GLOBAL_ALL
 curl=. curl_easy_init ''
 if. curl do.
-  res=. curl_easy_setopt_str curl; CURLOPT_URL;'https://example.com'
+  res=. curl_easy_setopt_str curl; CURLOPT_URL; setopt_variadic, <'https://example.com'
   if. res~:CURLE_OK do. echo memr 0 _1,~ curl_easy_strerror <res end.
-  res=. curl_easy_setopt curl; CURLOPT_FOLLOWLOCATION; 1
+  res=. curl_easy_setopt curl; CURLOPT_FOLLOWLOCATION; setopt_variadic, <1
   if. res~:CURLE_OK do. echo memr 0 _1,~ curl_easy_strerror <res end.
-  res=. curl_easy_setopt curl; CURLOPT_WRITEFUNCTION; (f 4)
+  res=. curl_easy_setopt curl; CURLOPT_WRITEFUNCTION; setopt_variadic, <(f 4)
   if. res~:CURLE_OK do. echo memr 0 _1,~ curl_easy_strerror <res end.
-  res=. curl_easy_setopt curl; CURLOPT_WRITEDATA; 1
+  res=. curl_easy_setopt curl; CURLOPT_WRITEDATA; setopt_variadic, <1
   if. res~:CURLE_OK do. echo memr 0 _1,~ curl_easy_strerror <res end.
   res=. curl_easy_perform <curl
   if. res~:CURLE_OK do. echo memr 0 _1,~ curl_easy_strerror <res end.
