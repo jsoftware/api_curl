@@ -1,6 +1,7 @@
 NB. write to memory
 
 load 'api/curl'
+coinsert 'jcurl'
 
 cdcallback=: 3 : 0
 y=. 15!:17''

@@ -1,100 +1,5 @@
-cocurrent 'jcurl'
-3 : 0''
-select. UNAME
-case. 'Linux' do.
-  libcurl=: 'libcurl.so.4.8.0'
-case. 'Win' do.
-  libcurl=: 'libcurl.dll'
-case. 'Darwin' do.
-  libcurl=: 'libcurl.dylib'
-case. do.
-  libcurl=: 'libcurl.so'
-end.
-)
+NB. constant
 
-curl_strequal=: ((dquote libcurl), ' curl_strequal > i *c *c ') & (15!:0)
-curl_strnequal=: ((dquote libcurl), ' curl_strnequal > i *c *c x ') & (15!:0)
-curl_mime_init=: ((dquote libcurl), ' curl_mime_init > x x ') & (15!:0)
-curl_mime_free=: ((dquote libcurl), ' curl_mime_free > n x ') & (15!:0)
-curl_mime_addpart=: ((dquote libcurl), ' curl_mime_addpart > x x ') & (15!:0)
-curl_mime_name=: ((dquote libcurl), ' curl_mime_name > i x *c ') & (15!:0)
-curl_mime_filename=: ((dquote libcurl), ' curl_mime_filename > i x *c ') & (15!:0)
-curl_mime_type=: ((dquote libcurl), ' curl_mime_type > i x *c ') & (15!:0)
-curl_mime_encoder=: ((dquote libcurl), ' curl_mime_encoder > i x *c ') & (15!:0)
-curl_mime_data=: ((dquote libcurl), ' curl_mime_data > i x *c x ') & (15!:0)
-curl_mime_filedata=: ((dquote libcurl), ' curl_mime_filedata > i x *c ') & (15!:0)
-curl_mime_data_cb=: ((dquote libcurl), ' curl_mime_data_cb > i x x x x x x ') & (15!:0)
-curl_mime_subparts=: ((dquote libcurl), ' curl_mime_subparts > i x x ') & (15!:0)
-curl_mime_headers=: ((dquote libcurl), ' curl_mime_headers > i x x i ') & (15!:0)
-curl_formadd=: ((dquote libcurl), ' curl_formadd > i *x *x x ') & (15!:0)
-curl_formget=: ((dquote libcurl), ' curl_formget > i x x x ') & (15!:0)
-curl_formfree=: ((dquote libcurl), ' curl_formfree > n x ') & (15!:0)
-curl_getenv=: ((dquote libcurl), ' curl_getenv > x *c ') & (15!:0)
-curl_version=: ((dquote libcurl), ' curl_version > x ') & (15!:0)
-curl_easy_escape=: ((dquote libcurl), ' curl_easy_escape > x x *c i ') & (15!:0)
-curl_escape=: ((dquote libcurl), ' curl_escape > x *c i ') & (15!:0)
-curl_easy_unescape=: ((dquote libcurl), ' curl_easy_unescape > x x *c i *i ') & (15!:0)
-curl_unescape=: ((dquote libcurl), ' curl_unescape > x *c i ') & (15!:0)
-curl_free=: ((dquote libcurl), ' curl_free > n x ') & (15!:0)
-curl_global_init=: ((dquote libcurl), ' curl_global_init > i x ') & (15!:0)
-curl_global_init_mem=: ((dquote libcurl), ' curl_global_init_mem > i x x x x x x ') & (15!:0)
-curl_global_cleanup=: ((dquote libcurl), ' curl_global_cleanup > n ') & (15!:0)
-curl_global_trace=: ((dquote libcurl), ' curl_global_trace > i *c ') & (15!:0)
-curl_global_sslset=: ((dquote libcurl), ' curl_global_sslset > i x *c *x ') & (15!:0)
-curl_slist_append=: ((dquote libcurl), ' curl_slist_append > x x *c ') & (15!:0)
-curl_slist_free_all=: ((dquote libcurl), ' curl_slist_free_all > n x ') & (15!:0)
-curl_getdate=: ((dquote libcurl), ' curl_getdate > x *c x ') & (15!:0)
-curl_share_init=: ((dquote libcurl), ' curl_share_init > x ') & (15!:0)
-curl_share_setopt=: ((dquote libcurl), ' curl_share_setopt > i x i x ') & (15!:0)
-curl_share_cleanup=: ((dquote libcurl), ' curl_share_cleanup > i x ') & (15!:0)
-curl_version_info=: ((dquote libcurl), ' curl_version_info > x i ') & (15!:0)
-curl_easy_strerror=: ((dquote libcurl), ' curl_easy_strerror > x i ') & (15!:0)
-curl_share_strerror=: ((dquote libcurl), ' curl_share_strerror > x i ') & (15!:0)
-curl_easy_pause=: ((dquote libcurl), ' curl_easy_pause > i x i ') & (15!:0)
-curl_easy_init=: ((dquote libcurl), ' curl_easy_init > x ') & (15!:0)
-curl_easy_setopt=: ((dquote libcurl), ' curl_easy_setopt > i x i x ') & (15!:0)
-curl_easy_perform=: ((dquote libcurl), ' curl_easy_perform > i x ') & (15!:0)
-curl_easy_cleanup=: ((dquote libcurl), ' curl_easy_cleanup > n x ') & (15!:0)
-curl_easy_getinfo=: ((dquote libcurl), ' curl_easy_getinfo > i x i x ') & (15!:0)
-curl_easy_duphandle=: ((dquote libcurl), ' curl_easy_duphandle > x x ') & (15!:0)
-curl_easy_reset=: ((dquote libcurl), ' curl_easy_reset > n x ') & (15!:0)
-curl_easy_recv=: ((dquote libcurl), ' curl_easy_recv > i x x x *x ') & (15!:0)
-curl_easy_send=: ((dquote libcurl), ' curl_easy_send > i x x x *x ') & (15!:0)
-curl_easy_upkeep=: ((dquote libcurl), ' curl_easy_upkeep > i x ') & (15!:0)
-curl_multi_init=: ((dquote libcurl), ' curl_multi_init > x ') & (15!:0)
-curl_multi_add_handle=: ((dquote libcurl), ' curl_multi_add_handle > i x x ') & (15!:0)
-curl_multi_remove_handle=: ((dquote libcurl), ' curl_multi_remove_handle > i x x ') & (15!:0)
-curl_multi_fdset=: ((dquote libcurl), ' curl_multi_fdset > i x x x x *i ') & (15!:0)
-curl_multi_wait=: ((dquote libcurl), ' curl_multi_wait > i x x i i *i ') & (15!:0)
-curl_multi_poll=: ((dquote libcurl), ' curl_multi_poll > i x x i i *i ') & (15!:0)
-curl_multi_wakeup=: ((dquote libcurl), ' curl_multi_wakeup > i x ') & (15!:0)
-curl_multi_perform=: ((dquote libcurl), ' curl_multi_perform > i x *i ') & (15!:0)
-curl_multi_cleanup=: ((dquote libcurl), ' curl_multi_cleanup > i x ') & (15!:0)
-curl_multi_info_read=: ((dquote libcurl), ' curl_multi_info_read > x x *i ') & (15!:0)
-curl_multi_strerror=: ((dquote libcurl), ' curl_multi_strerror > x i ') & (15!:0)
-curl_multi_socket=: ((dquote libcurl), ' curl_multi_socket > i x x *i ') & (15!:0)
-curl_multi_socket_action=: ((dquote libcurl), ' curl_multi_socket_action > i x x i *i ') & (15!:0)
-curl_multi_socket_all=: ((dquote libcurl), ' curl_multi_socket_all > i x *i ') & (15!:0)
-curl_multi_timeout=: ((dquote libcurl), ' curl_multi_timeout > i x *x ') & (15!:0)
-curl_multi_setopt=: ((dquote libcurl), ' curl_multi_setopt > i x i x ') & (15!:0)
-curl_multi_assign=: ((dquote libcurl), ' curl_multi_assign > i x x x ') & (15!:0)
-curl_multi_get_handles=: ((dquote libcurl), ' curl_multi_get_handles > x x ') & (15!:0)
-curl_pushheader_bynum=: ((dquote libcurl), ' curl_pushheader_bynum > x x x ') & (15!:0)
-curl_pushheader_byname=: ((dquote libcurl), ' curl_pushheader_byname > x x *c ') & (15!:0)
-curl_url=: ((dquote libcurl), ' curl_url > x ') & (15!:0)
-curl_url_cleanup=: ((dquote libcurl), ' curl_url_cleanup > n x ') & (15!:0)
-curl_url_dup=: ((dquote libcurl), ' curl_url_dup > x x ') & (15!:0)
-curl_url_get=: ((dquote libcurl), ' curl_url_get > i x i *x i ') & (15!:0)
-curl_url_set=: ((dquote libcurl), ' curl_url_set > i x i *c i ') & (15!:0)
-curl_url_strerror=: ((dquote libcurl), ' curl_url_strerror > x i ') & (15!:0)
-curl_easy_option_by_name=: ((dquote libcurl), ' curl_easy_option_by_name > x *c ') & (15!:0)
-curl_easy_option_by_id=: ((dquote libcurl), ' curl_easy_option_by_id > x i ') & (15!:0)
-curl_easy_option_next=: ((dquote libcurl), ' curl_easy_option_next > x x ') & (15!:0)
-curl_easy_header=: ((dquote libcurl), ' curl_easy_header > i x *c x i i *x ') & (15!:0)
-curl_easy_nextheader=: ((dquote libcurl), ' curl_easy_nextheader > x x i i *x ') & (15!:0)
-curl_ws_recv=: ((dquote libcurl), ' curl_ws_recv > i x x x *x *x ') & (15!:0)
-curl_ws_send=: ((dquote libcurl), ' curl_ws_send > i x x x *x x i ') & (15!:0)
-curl_ws_meta=: ((dquote libcurl), ' curl_ws_meta > x x ') & (15!:0)
 CURL_SOCKET_BAD =: _1
 
 CURLSSLBACKEND_NONE =: (0)
@@ -151,6 +56,8 @@ CURL_READFUNC_PAUSE =: 16b10000001
 CURL_SOCKOPT_OK =: 0
 CURL_SOCKOPT_ERROR =: 1
 CURL_SOCKOPT_ALREADY_CONNECTED =: 2
+
+NB. begin enum curlfiletype
 CURLFILETYPE_FILE =: (0)
 CURLFILETYPE_DIRECTORY =: (1)
 CURLFILETYPE_SYMLINK =: (2)
@@ -160,16 +67,28 @@ CURLFILETYPE_NAMEDPIPE =: (5)
 CURLFILETYPE_SOCKET =: (6)
 CURLFILETYPE_DOOR =: (7)
 CURLFILETYPE_UNKNOWN =: (8)
+NB. end enum curlfiletype
+
+NB. begin enum curlsocktype
 CURLSOCKTYPE_IPCXN =: (0)
 CURLSOCKTYPE_ACCEPT =: (1)
 CURLSOCKTYPE_LAST =: (2)
+NB. end enum curlsocktype
+
+NB. begin enum curlioerr
 CURLIOE_OK =: (0)
 CURLIOE_UNKNOWNCMD =: (1)
 CURLIOE_FAILRESTART =: (2)
 CURLIOE_LAST =: (3)
+NB. end enum curlioerr
+
+NB. begin enum curliocmd
 CURLIOCMD_NOP =: (0)
 CURLIOCMD_RESTARTREAD =: (1)
 CURLIOCMD_LAST =: (2)
+NB. end enum curliocmd
+
+NB. begin enum curl_infotype
 CURLINFO_TEXT =: (0)
 CURLINFO_HEADER_IN =: (1)
 CURLINFO_HEADER_OUT =: (2)
@@ -178,6 +97,9 @@ CURLINFO_DATA_OUT =: (4)
 CURLINFO_SSL_DATA_IN =: (5)
 CURLINFO_SSL_DATA_OUT =: (6)
 CURLINFO_END =: (7)
+NB. end enum curl_infotype
+
+NB. begin enum CURLcode
 CURLE_OK =: (0)
 CURLE_UNSUPPORTED_PROTOCOL =: (1)
 CURLE_FAILED_INIT =: (2)
@@ -264,6 +186,9 @@ CURLE_SSL_INVALIDCERTSTATUS =: (91)
 CURLE_HTTP2_STREAM =: (92)
 CURLE_RECURSIVE_API_CALL =: (93)
 CURL_LAST =: (94)
+NB. end enum CURLcode
+
+NB. begin enum curl_proxytype
 CURLPROXY_HTTP =: (0)
 CURLPROXY_HTTP_1_0 =: (1)
 CURLPROXY_HTTPS =: (2)
@@ -271,6 +196,8 @@ CURLPROXY_SOCKS4 =: (4)
 CURLPROXY_SOCKS5 =: (5)
 CURLPROXY_SOCKS4A =: (6)
 CURLPROXY_SOCKS5_HOSTNAME =: (7)
+NB. end enum curl_proxytype
+
 CURLSSH_AUTH_ANY =: _1
 CURLSSH_AUTH_NONE =: 0
 CURLSSH_AUTH_PUBLICKEY =: 1 (33 b.)~ 0
@@ -284,26 +211,39 @@ CURLGSSAPI_DELEGATION_NONE =: 0
 CURLGSSAPI_DELEGATION_POLICY_FLAG =: 1 (33 b.)~ 0
 CURLGSSAPI_DELEGATION_FLAG =: 1 (33 b.)~ 1
 CURL_ERROR_SIZE =: 256
+
+NB. begin enum curl_khtype
 CURLKHTYPE_UNKNOWN =: (0)
 CURLKHTYPE_RSA1 =: (1)
 CURLKHTYPE_RSA =: (2)
 CURLKHTYPE_DSS =: (3)
 CURLKHTYPE_ECDSA =: (4)
 CURLKHTYPE_ED25519 =: (5)
+NB. end enum curl_khtype
+
+NB. begin enum curl_khstat
 CURLKHSTAT_FINE_ADD_TO_FILE =: (0)
 CURLKHSTAT_FINE =: (1)
 CURLKHSTAT_REJECT =: (2)
 CURLKHSTAT_DEFER =: (3)
 CURLKHSTAT_LAST =: (4)
+NB. end enum curl_khstat
+
+NB. begin enum curl_khmatch
 CURLKHMATCH_OK =: (0)
 CURLKHMATCH_MISMATCH =: (1)
 CURLKHMATCH_MISSING =: (2)
 CURLKHMATCH_LAST =: (3)
+NB. end enum curl_khmatch
+
+NB. begin enum curl_usessl
 CURLUSESSL_NONE =: (0)
 CURLUSESSL_TRY =: (1)
 CURLUSESSL_CONTROL =: (2)
 CURLUSESSL_ALL =: (3)
 CURLUSESSL_LAST =: (4)
+NB. end enum curl_usessl
+
 CURLSSLOPT_ALLOW_BEAST =: 1 (33 b.)~ 0
 CURLSSLOPT_NO_REVOKE =: 1 (33 b.)~ 1
 CURL_HET_DEFAULT =: (200)
@@ -313,23 +253,36 @@ CURLFTPSSL_TRY =: CURLUSESSL_TRY
 CURLFTPSSL_CONTROL =: CURLUSESSL_CONTROL
 CURLFTPSSL_ALL =: CURLUSESSL_ALL
 CURLFTPSSL_LAST =: CURLUSESSL_LAST
+
+NB. begin enum curl_ftpccc
 CURLFTPSSL_CCC_NONE =: (0)
 CURLFTPSSL_CCC_PASSIVE =: (1)
 CURLFTPSSL_CCC_ACTIVE =: (2)
 CURLFTPSSL_CCC_LAST =: (3)
+NB. end enum curl_ftpccc
+
+NB. begin enum curl_ftpauth
 CURLFTPAUTH_DEFAULT =: (0)
 CURLFTPAUTH_SSL =: (1)
 CURLFTPAUTH_TLS =: (2)
 CURLFTPAUTH_LAST =: (3)
+NB. end enum curl_ftpauth
+
+NB. begin enum curl_ftpcreatedir
 CURLFTP_CREATE_DIR_NONE =: (0)
 CURLFTP_CREATE_DIR =: (1)
 CURLFTP_CREATE_DIR_RETRY =: (2)
 CURLFTP_CREATE_DIR_LAST =: (3)
+NB. end enum curl_ftpcreatedir
+
+NB. begin enum curl_ftpmethod
 CURLFTPMETHOD_DEFAULT =: (0)
 CURLFTPMETHOD_MULTICWD =: (1)
 CURLFTPMETHOD_NOCWD =: (2)
 CURLFTPMETHOD_SINGLECWD =: (3)
 CURLFTPMETHOD_LAST =: (4)
+NB. end enum curl_ftpmethod
+
 CURLHEADER_UNIFIED =: 0
 CURLHEADER_SEPARATE =: 1 (33 b.)~ 0
 CURLPROTO_HTTP =: 1 (33 b.)~ 0
@@ -366,6 +319,8 @@ CURLOPTTYPE_OBJECTPOINT =: 10000
 CURLOPTTYPE_STRINGPOINT =: 10000
 CURLOPTTYPE_FUNCTIONPOINT =: 20000
 CURLOPTTYPE_OFF_T =: 30000
+
+NB. begin enum CURLoption
 CURLOPT_WRITEDATA =: (10001)
 CURLOPT_URL =: (10002)
 CURLOPT_PORT =: (3)
@@ -626,6 +581,8 @@ CURLOPT_PROXY_TLS13_CIPHERS =: (10277)
 CURLOPT_DISALLOW_USERNAME_IN_URL =: (278)
 CURLOPT_MAXAGE_CONN =: (288)
 CURLOPT_LASTENTRY =: (10299)
+NB. end enum CURLoption
+
 CURLOPT_XFERINFODATA =: CURLOPT_PROGRESSDATA
 CURLOPT_SERVER_RESPONSE_TIMEOUT =: CURLOPT_FTP_RESPONSE_TIMEOUT
 CURLOPT_POST301 =: CURLOPT_POSTREDIR
@@ -639,6 +596,8 @@ CURL_IPRESOLVE_WHATEVER =: 0
 CURL_IPRESOLVE_V4 =: 1
 CURL_IPRESOLVE_V6 =: 2
 CURLOPT_RTSPHEADER =: CURLOPT_HTTPHEADER
+
+NB. begin enum ANONYMOUS
 CURL_HTTP_VERSION_NONE =: (0)
 CURL_HTTP_VERSION_1_0 =: (1)
 CURL_HTTP_VERSION_1_1 =: (2)
@@ -646,7 +605,11 @@ CURL_HTTP_VERSION_2_0 =: (3)
 CURL_HTTP_VERSION_2TLS =: (4)
 CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE =: (5)
 CURL_HTTP_VERSION_LAST =: (6)
+NB. end enum ANONYMOUS
+
 CURL_HTTP_VERSION_2 =: CURL_HTTP_VERSION_2_0
+
+NB. begin enum ANONYMOUS
 CURL_RTSPREQ_NONE =: (0)
 CURL_RTSPREQ_OPTIONS =: (1)
 CURL_RTSPREQ_DESCRIBE =: (2)
@@ -660,10 +623,16 @@ CURL_RTSPREQ_SET_PARAMETER =: (9)
 CURL_RTSPREQ_RECORD =: (10)
 CURL_RTSPREQ_RECEIVE =: (11)
 CURL_RTSPREQ_LAST =: (12)
+NB. end enum ANONYMOUS
+
+NB. begin enum CURL_NETRC_OPTION
 CURL_NETRC_IGNORED =: (0)
 CURL_NETRC_OPTIONAL =: (1)
 CURL_NETRC_REQUIRED =: (2)
 CURL_NETRC_LAST =: (3)
+NB. end enum CURL_NETRC_OPTION
+
+NB. begin enum ANONYMOUS
 CURL_SSLVERSION_DEFAULT =: (0)
 CURL_SSLVERSION_TLSv1 =: (1)
 CURL_SSLVERSION_SSLv2 =: (2)
@@ -673,6 +642,9 @@ CURL_SSLVERSION_TLSv1_1 =: (5)
 CURL_SSLVERSION_TLSv1_2 =: (6)
 CURL_SSLVERSION_TLSv1_3 =: (7)
 CURL_SSLVERSION_LAST =: (8)
+NB. end enum ANONYMOUS
+
+NB. begin enum ANONYMOUS
 CURL_SSLVERSION_MAX_NONE =: (0)
 CURL_SSLVERSION_MAX_DEFAULT =: (65536)
 CURL_SSLVERSION_MAX_TLSv1_0 =: (262144)
@@ -680,19 +652,29 @@ CURL_SSLVERSION_MAX_TLSv1_1 =: (327680)
 CURL_SSLVERSION_MAX_TLSv1_2 =: (393216)
 CURL_SSLVERSION_MAX_TLSv1_3 =: (458752)
 CURL_SSLVERSION_MAX_LAST =: (524288)
+NB. end enum ANONYMOUS
+
+NB. begin enum CURL_TLSAUTH
 CURL_TLSAUTH_NONE =: (0)
 CURL_TLSAUTH_SRP =: (1)
 CURL_TLSAUTH_LAST =: (2)
+NB. end enum CURL_TLSAUTH
+
 CURL_REDIR_GET_ALL =: 0
 CURL_REDIR_POST_301 =: 1
 CURL_REDIR_POST_302 =: 2
 CURL_REDIR_POST_303 =: 4
 CURL_REDIR_POST_ALL =: (CURL_REDIR_POST_301  (23 b.)  CURL_REDIR_POST_302)  (23 b.)  CURL_REDIR_POST_303
+
+NB. begin enum curl_TimeCond
 CURL_TIMECOND_NONE =: (0)
 CURL_TIMECOND_IFMODSINCE =: (1)
 CURL_TIMECOND_IFUNMODSINCE =: (2)
 CURL_TIMECOND_LASTMOD =: (3)
 CURL_TIMECOND_LAST =: (4)
+NB. end enum curl_TimeCond
+
+NB. begin enum CURLformoption
 CURLFORM_NOTHING =: (0)
 CURLFORM_COPYNAME =: (1)
 CURLFORM_PTRNAME =: (2)
@@ -713,6 +695,9 @@ CURLFORM_END =: (17)
 CURLFORM_STREAM =: (19)
 CURLFORM_CONTENTLEN =: (20)
 CURLFORM_LASTENTRY =: (21)
+NB. end enum CURLformoption
+
+NB. begin enum CURLFORMcode
 CURL_FORMADD_OK =: (0)
 CURL_FORMADD_MEMORY =: (1)
 CURL_FORMADD_OPTION_TWICE =: (2)
@@ -722,10 +707,15 @@ CURL_FORMADD_INCOMPLETE =: (5)
 CURL_FORMADD_ILLEGAL_ARRAY =: (6)
 CURL_FORMADD_DISABLED =: (7)
 CURL_FORMADD_LAST =: (8)
+NB. end enum CURLFORMcode
+
+NB. begin enum CURLsslset
 CURLSSLSET_OK =: (0)
 CURLSSLSET_UNKNOWN_BACKEND =: (1)
 CURLSSLSET_TOO_LATE =: (2)
 CURLSSLSET_NO_BACKENDS =: (3)
+NB. end enum CURLsslset
+
 CURLINFO_STRING =: 16b00100000
 CURLINFO_LONG =: 16b00200000
 CURLINFO_DOUBLE =: 16b00300000
@@ -735,6 +725,8 @@ CURLINFO_SOCKET =: 16b00500000
 CURLINFO_OFF_T =: 16b00600000
 CURLINFO_MASK =: 16b000fffff
 CURLINFO_TYPEMASK =: 16b00f00000
+
+NB. begin enum CURLINFO
 CURLINFO_NONE =: (0)
 CURLINFO_EFFECTIVE_URL =: (1048577)
 CURLINFO_RESPONSE_CODE =: (2097154)
@@ -800,7 +792,11 @@ CURLINFO_STARTTRANSFER_TIME_T =: (6291510)
 CURLINFO_REDIRECT_TIME_T =: (6291511)
 CURLINFO_APPCONNECT_TIME_T =: (6291512)
 CURLINFO_LASTONE =: (56)
+NB. end enum CURLINFO
+
 CURLINFO_HTTP_CODE =: CURLINFO_RESPONSE_CODE
+
+NB. begin enum curl_closepolicy
 CURLCLOSEPOLICY_NONE =: (0)
 CURLCLOSEPOLICY_OLDEST =: (1)
 CURLCLOSEPOLICY_LEAST_RECENTLY_USED =: (2)
@@ -808,12 +804,16 @@ CURLCLOSEPOLICY_LEAST_TRAFFIC =: (3)
 CURLCLOSEPOLICY_SLOWEST =: (4)
 CURLCLOSEPOLICY_CALLBACK =: (5)
 CURLCLOSEPOLICY_LAST =: (6)
+NB. end enum curl_closepolicy
+
 CURL_GLOBAL_SSL =: 1 (33 b.)~ 0
 CURL_GLOBAL_WIN32 =: 1 (33 b.)~ 1
 CURL_GLOBAL_ALL =: CURL_GLOBAL_SSL  (23 b.)  CURL_GLOBAL_WIN32
 CURL_GLOBAL_NOTHING =: 0
 CURL_GLOBAL_DEFAULT =: CURL_GLOBAL_ALL
 CURL_GLOBAL_ACK_EINTR =: 1 (33 b.)~ 2
+
+NB. begin enum curl_lock_data
 CURL_LOCK_DATA_NONE =: (0)
 CURL_LOCK_DATA_SHARE =: (1)
 CURL_LOCK_DATA_COOKIE =: (2)
@@ -822,10 +822,16 @@ CURL_LOCK_DATA_SSL_SESSION =: (4)
 CURL_LOCK_DATA_CONNECT =: (5)
 CURL_LOCK_DATA_PSL =: (6)
 CURL_LOCK_DATA_LAST =: (7)
+NB. end enum curl_lock_data
+
+NB. begin enum curl_lock_access
 CURL_LOCK_ACCESS_NONE =: (0)
 CURL_LOCK_ACCESS_SHARED =: (1)
 CURL_LOCK_ACCESS_SINGLE =: (2)
 CURL_LOCK_ACCESS_LAST =: (3)
+NB. end enum curl_lock_access
+
+NB. begin enum CURLSHcode
 CURLSHE_OK =: (0)
 CURLSHE_BAD_OPTION =: (1)
 CURLSHE_IN_USE =: (2)
@@ -833,6 +839,9 @@ CURLSHE_INVALID =: (3)
 CURLSHE_NOMEM =: (4)
 CURLSHE_NOT_BUILT_IN =: (5)
 CURLSHE_LAST =: (6)
+NB. end enum CURLSHcode
+
+NB. begin enum CURLSHoption
 CURLSHOPT_NONE =: (0)
 CURLSHOPT_SHARE =: (1)
 CURLSHOPT_UNSHARE =: (2)
@@ -840,12 +849,17 @@ CURLSHOPT_LOCKFUNC =: (3)
 CURLSHOPT_UNLOCKFUNC =: (4)
 CURLSHOPT_USERDATA =: (5)
 CURLSHOPT_LAST =: (6)
+NB. end enum CURLSHoption
+
+NB. begin enum CURLversion
 CURLVERSION_FIRST =: (0)
 CURLVERSION_SECOND =: (1)
 CURLVERSION_THIRD =: (2)
 CURLVERSION_FOURTH =: (3)
 CURLVERSION_FIFTH =: (4)
 CURLVERSION_LAST =: (5)
+NB. end enum CURLversion
+
 CURLVERSION_NOW =: CURLVERSION_FIFTH
 
 CURL_VERSION_IPV6 =: 1 (33 b.)~ 0
@@ -901,7 +915,12 @@ CURLE_ALREADY_COMPLETE =: 99999
 CURLOPT_FILE =: CURLOPT_WRITEDATA
 CURLOPT_INFILE =: CURLOPT_READDATA
 CURLOPT_WRITEHEADER =: CURLOPT_HEADERDATA
+
+NB. multi.h
+
 CURLM =: Cvoid
+
+NB. begin enum CURLMcode
 CURLMcode =: Cint
 CURLM_CALL_MULTI_PERFORM =: (_1)
 CURLM_OK =: (0)
@@ -914,13 +933,19 @@ CURLM_UNKNOWN_OPTION =: (6)
 CURLM_ADDED_ALREADY =: (7)
 CURLM_RECURSIVE_API_CALL =: (8)
 CURLM_LAST =: (9)
+NB. end enum CURLMcode
+
 CURLM_CALL_MULTI_SOCKET =: CURLM_CALL_MULTI_PERFORM
 CURLPIPE_NOTHING =: (0)
 CURLPIPE_HTTP1 =: (1)
 CURLPIPE_MULTIPLEX =: (2)
+
+NB. begin enum CURLMSG
 CURLMSG_NONE =: (0)
 CURLMSG_DONE =: (1)
 CURLMSG_LAST =: (2)
+NB. end enum CURLMSG
+
 CURL_WAIT_POLLIN =: 16b0001
 CURL_WAIT_POLLPRI =: 16b0002
 CURL_WAIT_POLLOUT =: 16b0004
@@ -934,6 +959,8 @@ CURL_SOCKET_TIMEOUT =: CURL_SOCKET_BAD
 CURL_CSELECT_IN =: 16b01
 CURL_CSELECT_OUT =: 16b02
 CURL_CSELECT_ERR =: 16b04
+
+NB. begin enum CURLMoption
 CURLMOPT_SOCKETFUNCTION =: (20001)
 CURLMOPT_SOCKETDATA =: (10002)
 CURLMOPT_PIPELINING =: (3)
@@ -950,8 +977,12 @@ CURLMOPT_MAX_TOTAL_CONNECTIONS =: (13)
 CURLMOPT_PUSHFUNCTION =: (20014)
 CURLMOPT_PUSHDATA =: (10015)
 CURLMOPT_LASTENTRY =: (10016)
+NB. end enum CURLMoption
+
 CURL_PUSH_OK =: 0
 CURL_PUSH_DENY =: 1
+
+NB.   Generating #define constants
 CURL_FORMAT_CURL_OFF_T             =: 'ld'
 CURL_FORMAT_CURL_OFF_TU            =: 'lu'
 CURL_PULL_SYS_TYPES_H              =: 1
@@ -1173,16 +1204,3 @@ CURL_CSELECT_OUT                   =: 16b02
 CURL_CSELECT_ERR                   =: 16b04
 CURL_PUSH_OK                       =: 0
 CURL_PUSH_DENY                     =: 1
-3 : 0''
-if. ('arm64'-:9!:56'cpu') *. UNAME-:'Darwin' do.
-  setopt_variadic=: 6#<0
-  curl_easy_setopt=: ((dquote libcurl), ' curl_easy_setopt > i x i x x x x x x x ') & (15!:0)
-  curl_easy_setopt_str=: ((dquote libcurl), ' curl_easy_setopt > i x i x x x x x x *c ') & (15!:0)
-else.
-  setopt_variadic=: ''
-  curl_easy_setopt_str=: ((dquote libcurl), ' curl_easy_setopt > i x i *c ') & (15!:0)
-end.
-''
-)
-
-cocurrent 'base'

@@ -1,6 +1,7 @@
-NB. write to stdou
+NB. write to stdout
 
 load 'api/curl'
+coinsert 'jcurl'
 
 simple=: 3 : 0
 curl=. curl_easy_init ''
